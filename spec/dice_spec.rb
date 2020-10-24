@@ -23,4 +23,11 @@ describe 'dice' do
       expect(subject.roll_results).to include(result1, result2)
     end
   end
+
+  describe 'restart' do
+    it 'upon restart, the array of roll results is emptied' do
+      subject.restart
+      expect(subject.roll_results).to be_empty
+    end
+  end
 end

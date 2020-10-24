@@ -14,4 +14,8 @@ class Dice
     @roll_results.push(roll_result)
     return roll_result
   end
+
+  def restart
+    @roll_results = []
+  end
 end
