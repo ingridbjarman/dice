@@ -9,16 +9,18 @@ describe 'dice' do
   end
 
   describe 'roll' do
-    it 'the array of results should be empty before each turn' do
-      expect(subject.roll_results).to be_empty
+    it 'the roll result is an integer within the set dice range' do
+      subject.roll
+      expect(subject.roll_result).to be_between(1, subject.dice_range.last)
     end
     it 'when rolled, the roll result is stored in the array of results' do
       subject.roll
       expect(subject.roll_results).to include(subject.roll_result)
     end
-    it 'the roll result is an integer within the set dice range' do
-      subject.roll
-      expect(subject.roll_result).to be_between(1, subject.dice_range.last)
+    it 'when rolled multiple times, each result should be stored in the results array' do
+      result1 = subject.roll
+      result2 = subject.roll
+      expect(subject.roll_results).to include(result1, result2)
     end
   end
 end

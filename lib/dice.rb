@@ -10,8 +10,8 @@ class Dice
   end
 
   def roll
-    @roll_results = []
     @roll_result = @dice_range.sample
     @roll_results.push(roll_result)
+    return roll_result
   end
 end
